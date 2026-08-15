@@ -1,0 +1,6 @@
+{
+  "name": "Habits for a Better World - Onboarding Quiz",
+  "description": "A highly polished, interactive onboarding quiz prototype with dynamic AI-powered habit suggestions and simulated mobile/desktop experiences.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
