@@ -130,39 +130,52 @@ export default function CommunityChat({ category, goalTitle, theme = 'light' }: 
     <div className={`flex flex-col gap-4 w-full transition-colors duration-200 ${
       theme === 'dark' ? 'text-white' : 'text-[#1C1C1E]'
     }`}>
-      {/* 1. Slack Workspace Direct Link Card (Sleek, Uncrowded) */}
-      <div className={`p-4 border rounded-[16px] shadow-xs transition-all ${
-        theme === 'dark' 
-          ? 'bg-[#121214] border-[#1F1F24]' 
-          : 'bg-white border-[#E5E5EA]'
-      }`}>
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <div className="flex items-center gap-3 min-w-0">
-            <div className="w-8 h-8 rounded-xl bg-[#4A154B] flex items-center justify-center text-white shrink-0 shadow-xs">
-              <Slack className="w-4 h-4" />
-            </div>
-            <div className="min-w-0">
-              <h4 className={`text-xs sm:text-sm font-bold leading-tight ${
-                theme === 'dark' ? 'text-white' : 'text-[#1C1C1E]'
-              }`}>
-                Community Slack
-              </h4>
-              <p className={`text-[11px] mt-0.5 leading-tight ${
-                theme === 'dark' ? 'text-[#98989D]' : 'text-[#6C6C70]'
-              }`}>
-                Connect live in <span className="font-semibold text-[#0080FF]">#{slackChannelName}</span>
-              </p>
-            </div>
-          </div>
+      {/* 1. Slack Workspace Card (Formatted matching Google Calendar Cards layout) */}
+      <div
+        className={`p-4 border rounded-[16px] shadow-xs transition-all duration-200 ${
+          theme === 'dark' 
+            ? 'bg-[#121214] border-[#1F1F24] hover:border-[#2E2E35]' 
+            : 'bg-white border-[#E5E5EA] hover:border-[#D1D1D6]'
+        }`}
+      >
+        {/* Top Row: Pill Tag (Left) & Status (Right) */}
+        <div className="flex items-center justify-between gap-2">
+          <span className="inline-flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-semibold text-white rounded-full bg-[#4A154B]">
+            <Slack className="w-3 h-3" />
+            <span>Slack Community</span>
+          </span>
+          <span className="text-[11px] font-normal text-[#8E8E93]">
+            24/7 · Active Now
+          </span>
+        </div>
+
+        {/* Middle: Title & Subtitle */}
+        <div className="mt-2.5 mb-3">
+          <h4 className={`text-xs sm:text-sm font-bold leading-tight ${
+            theme === 'dark' ? 'text-white' : 'text-[#1C1C1E]'
+          }`}>
+            Habits for a Better World Workspace
+          </h4>
+          <p className="text-[11px] leading-normal mt-1 text-[#8E8E93]">
+            Connect live with challengers, share daily wins, and discuss habits in <span className="font-semibold text-[#0080FF]">#{slackChannelName}</span>
+          </p>
+        </div>
+
+        {/* Bottom Row: Channel Tag (Left) & Prominent Open Slack Button (Right) */}
+        <div className="flex items-center justify-between pt-0.5">
+          <span className="text-xs font-semibold text-[#0080FF] flex items-center gap-1">
+            #{slackChannelName}
+          </span>
 
           <a
             href={slackWorkspaceUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-1.5 px-3.5 py-1.5 bg-[#4A154B] hover:bg-[#5B1A5C] active:scale-95 text-white font-semibold text-xs rounded-full transition-all shrink-0 cursor-pointer self-start sm:self-auto"
+            className="px-4 py-1.5 text-xs font-bold rounded-full transition-all cursor-pointer flex items-center gap-1.5 bg-[#4A154B] hover:bg-[#611f64] text-white shadow-xs active:scale-95"
           >
+            <Slack className="w-3.5 h-3.5" />
             <span>Open Slack</span>
-            <ExternalLink className="w-3 h-3" />
+            <ExternalLink className="w-3 h-3 ml-0.5" />
           </a>
         </div>
       </div>
