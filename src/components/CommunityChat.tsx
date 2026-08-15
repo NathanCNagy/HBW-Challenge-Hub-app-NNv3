@@ -180,25 +180,32 @@ export default function CommunityChat({ category, goalTitle, theme = 'light' }: 
         </div>
       </div>
 
-      {/* 2. Events Header with Filter Pills */}
-      <div className="space-y-2.5">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-          <div className="flex items-center gap-1.5">
-            <Calendar className="w-3.5 h-3.5 text-[#0080FF]" />
-            <h4 className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#8E8E93]">
+      {/* 2. Events Section with Distinct Visual Separation */}
+      <div className={`pt-4 border-t space-y-3.5 ${
+        theme === 'dark' ? 'border-[#1F1F24]' : 'border-[#E5E5EA]'
+      }`}>
+        {/* Section Header */}
+        <div className="space-y-2">
+          <div className="flex items-center gap-2">
+            <div className="w-6 h-6 rounded-lg bg-[#0080FF]/10 text-[#0080FF] flex items-center justify-center shrink-0">
+              <Calendar className="w-3.5 h-3.5" />
+            </div>
+            <h3 className={`text-sm sm:text-base font-bold leading-tight ${
+              theme === 'dark' ? 'text-white' : 'text-[#1C1C1E]'
+            }`}>
               Community Calendar Events
-            </h4>
+            </h3>
           </div>
 
-          {/* Filter Pills */}
-          <div className="flex items-center gap-1.5">
+          {/* Filter Pills Underneath Label */}
+          <div className="flex items-center gap-1.5 pt-0.5">
             {(['All', 'Digital', 'In-Person'] as const).map((filter) => (
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`px-2.5 py-0.5 text-[11px] font-medium rounded-full transition-all cursor-pointer ${
+                className={`px-3 py-1 text-[11px] font-medium rounded-full transition-all cursor-pointer ${
                   activeFilter === filter
-                    ? 'bg-[#1C1C1E] text-white dark:bg-white dark:text-black font-semibold'
+                    ? 'bg-[#1C1C1E] text-white dark:bg-white dark:text-black font-semibold shadow-xs'
                     : theme === 'dark'
                     ? 'bg-[#1F1F24] text-[#98989D] hover:text-white'
                     : 'bg-[#F2F2F7] text-[#6C6C70] hover:text-[#1C1C1E]'
@@ -234,13 +241,13 @@ export default function CommunityChat({ category, goalTitle, theme = 'light' }: 
                 </div>
 
                 {/* Middle: Title & Subtitle */}
-                <div className="mt-2.5 mb-3">
-                  <h4 className={`text-xs sm:text-sm font-bold leading-tight ${
+                <div className="mt-2.5 mb-3 min-h-[50px] flex flex-col justify-start">
+                  <h4 className={`text-xs sm:text-sm font-bold leading-tight line-clamp-1 ${
                     theme === 'dark' ? 'text-white' : 'text-[#1C1C1E]'
                   }`}>
                     {evt.title}
                   </h4>
-                  <p className="text-[11px] leading-normal mt-1 text-[#8E8E93]">
+                  <p className="text-[11px] leading-normal mt-1 text-[#8E8E93] line-clamp-1">
                     {evt.dateTimeLocation}
                   </p>
                 </div>
