@@ -98,8 +98,8 @@ export default function DeviceSimulator({ children, theme = 'light' }: DeviceSim
             </div>
           </div>
 
-          {/* Simulated phone screen container */}
-          <div className={`w-full h-full rounded-[38px] overflow-hidden relative flex flex-col border transition-colors duration-300 ${
+          {/* Simulated phone screen container with transform containment for in-phone modals */}
+          <div className={`w-full h-full rounded-[38px] overflow-hidden relative flex flex-col border transition-colors duration-300 [transform:translateZ(0)] ${
             isDark ? 'bg-[#000814] border-neutral-950' : 'bg-[#F5F5F7] border-[#D1D1D6]'
           }`}>
             {/* Simulated Mobile Status bar */}

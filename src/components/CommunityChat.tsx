@@ -281,12 +281,12 @@ export default function CommunityChat({ category, goalTitle, theme = 'light' }: 
         </div>
       </div>
 
-      {/* 4. Event RSVP Details Modal (Clean, Informative) */}
+      {/* 4. Event RSVP Details Modal (Clean In-Phone Overlay) */}
       {selectedEvent && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-200">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3.5 bg-black/70 backdrop-blur-xs animate-in fade-in duration-200">
           <div
-            className={`w-full max-w-md p-5 rounded-[20px] border shadow-xl transition-all ${
-              theme === 'dark' ? 'bg-[#18181B] border-[#2A2A30] text-white' : 'bg-white border-[#E5E5EA] text-[#1C1C1E]'
+            className={`w-full max-w-[335px] max-h-[90%] overflow-y-auto custom-scrollbar p-4 rounded-[20px] border shadow-2xl transition-all ${
+              theme === 'dark' ? 'bg-[#18181B] border-[#2A2A30] text-white shadow-black/80' : 'bg-white border-[#E5E5EA] text-[#1C1C1E] shadow-xl'
             }`}
           >
             {/* Modal Header */}
